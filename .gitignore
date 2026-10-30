@@ -1,0 +1,13 @@
+node_modules/
+dist/
+functions/lib/
+.firebase/
+.emulator-data/
+.vercel/
+.env
+.env.*
+!.env.example
+# Only fake values, and npm test needs it.
+!functions/.env.demo-psc-test
+*.local
+*.log

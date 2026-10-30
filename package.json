@@ -1,0 +1,37 @@
+{
+  "name": "psc-practice",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n fns,fire,web -c gray,yellow,cyan \"npm --prefix functions run watch\" \"npm run emulators\" \"vite\"",
+    "emulators": "npm --prefix functions run build && npx -y firebase-tools@15 emulators:start --project demo-psc --only auth,firestore,functions --import=.emulator-data --export-on-exit=.emulator-data",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "npm --prefix functions run build && npx -y firebase-tools@15 emulators:exec --project demo-psc-test --only auth,firestore,functions \"node --disable-warning=ExperimentalWarning --test functions/test/api.test.ts\"",
+    "deploy:check": "npx -y firebase-tools@15 deploy --only functions:psc --project prod --dry-run",
+    "deploy:backend": "npx -y firebase-tools@15 deploy --only firestore,functions:psc --project prod"
+  },
+  "dependencies": {
+    "firebase": "^13.1.0",
+    "lucide-react": "^1.65.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}

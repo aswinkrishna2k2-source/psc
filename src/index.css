@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  color-scheme: light;
+  --paper: #f8f6ef;
+  --surface: #ffffff;
+  --surface-2: #f1eee4;
+  --ink: #15211e;
+  --ink-2: #44514c;
+  --ink-3: #5c6963;
+  --line: #e3dfd2;
+  --control: #85897f;
+  --brand: #0f5c50;
+  --brand-hover: #0b4a40;
+  --on-brand: #ffffff;
+  --brand-soft: #e2efeb;
+  --gold: #805708;
+  --gold-mark: #c9952a;
+  --gold-soft: #f9efd6;
+  --good: #0a6b45;
+  --good-soft: #e1f3ea;
+  --bad: #b42318;
+  --bad-soft: #fbe9e6;
+  --series-1: #0e8c7a;
+  --series-2: #e0662f;
+  --heat-1: #6cbcaa;
+  --heat-2: #3d9f8d;
+  --heat-3: #1f7f70;
+  --heat-4: #0f5c50;
+  --shadow-card: 0 1px 2px rgb(21 33 30 / 0.05), 0 4px 16px rgb(21 33 30 / 0.04);
+  --shadow-raised: 0 12px 40px rgb(21 33 30 / 0.18);
+  /* The sign-in panel stays deep green in both themes. */
+  --band: #0f5c50;
+  --on-band: #f8f6ef;
+  --band-gold: #e8bd63;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f1614;
+  --surface: #17201e;
+  --surface-2: #202b28;
+  --ink: #e9eeeb;
+  --ink-2: #b6c2bd;
+  --ink-3: #98a5a0;
+  --line: #2c3835;
+  --control: #6f7d78;
+  --brand: #5fd0b8;
+  --brand-hover: #7fdcc8;
+  --on-brand: #06231d;
+  --brand-soft: #16332c;
+  --gold: #e8bd63;
+  --gold-mark: #c9952a;
+  --gold-soft: #2e2613;
+  --good: #63d6a0;
+  --good-soft: #12301f;
+  --bad: #ff9486;
+  --bad-soft: #3a1a16;
+  --series-1: #1f9f89;
+  --series-2: #d9652f;
+  --heat-1: #25635a;
+  --heat-2: #2f8a7a;
+  --heat-3: #45ad99;
+  --heat-4: #7fdcc8;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-raised: 0 12px 40px rgb(0 0 0 / 0.5);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-control: var(--control);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-on-brand: var(--on-brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-gold: var(--gold);
+  --color-gold-mark: var(--gold-mark);
+  --color-gold-soft: var(--gold-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
+  --color-heat-1: var(--heat-1);
+  --color-heat-2: var(--heat-2);
+  --color-heat-3: var(--heat-3);
+  --color-heat-4: var(--heat-4);
+  --color-band: var(--band);
+  --color-on-band: var(--on-band);
+  --color-band-gold: var(--band-gold);
+  --shadow-card: var(--shadow-card);
+  --shadow-raised: var(--shadow-raised);
+  --font-sans: "Anek Latin", "Anek Malayalam", "Anek Tamil", "Anek Kannada", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-block: 5rem;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    overscroll-behavior-y: none;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  button:not(:disabled),
+  a[href],
+  label[for],
+  select:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Malayalam, Tamil and Kannada conjuncts need more room than Latin text. */
+  :lang(ml),
+  :lang(ta),
+  :lang(kn) {
+    line-height: 1.75;
+  }
+
+  dialog {
+    margin: auto;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    max-width: calc(100vw - 2rem);
+  }
+
+  dialog::backdrop {
+    background: rgb(10 18 16 / 0.55);
+  }
+}
+
+@layer components {
+  /* Inspired by the gold border of a Kerala kasavu sari: one wide line, one fine line. */
+  .kasavu {
+    height: 6px;
+    background:
+      linear-gradient(var(--gold-mark), var(--gold-mark)) top / 100% 3px no-repeat,
+      linear-gradient(var(--gold-mark), var(--gold-mark)) bottom / 100% 1px no-repeat;
+  }
+
+  .rise-in {
+    animation: rise-in 240ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .skeleton {
+    border-radius: 0.5rem;
+    background: var(--surface-2);
+    animation: pulse-soft 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulse-soft {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

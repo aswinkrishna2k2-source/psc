@@ -1,0 +1,7 @@
+functions/
+.env
+.env.*
+!.env.example
+*.local
+.firebase/
+.emulator-data/

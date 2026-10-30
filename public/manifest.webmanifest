@@ -1,0 +1,14 @@
+{
+  "name": "PSC Practice",
+  "short_name": "PSC Practice",
+  "description": "Practice Kerala PSC MCQs and track your daily progress.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8f6ef",
+  "theme_color": "#0f5c50",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

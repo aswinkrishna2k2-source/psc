@@ -1,0 +1,35 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "pool", "order": "ASCENDING" },
+        { "fieldPath": "rand", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "quizzes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "examId", "order": "ASCENDING" },
+        { "fieldPath": "startedAt", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    { "collectionGroup": "questions", "fieldPath": "question", "indexes": [] },
+    { "collectionGroup": "questions", "fieldPath": "options", "indexes": [] },
+    { "collectionGroup": "questions", "fieldPath": "explanation", "indexes": [] },
+    { "collectionGroup": "questions", "fieldPath": "reportedBy", "indexes": [] },
+    { "collectionGroup": "quizzes", "fieldPath": "answers", "indexes": [] },
+    { "collectionGroup": "quizzes", "fieldPath": "questionIds", "indexes": [] },
+    { "collectionGroup": "quizzes", "fieldPath": "subjects", "indexes": [] },
+    { "collectionGroup": "quizzes", "fieldPath": "key", "indexes": [] },
+    { "collectionGroup": "quizzes", "fieldPath": "config", "indexes": [] },
+    { "collectionGroup": "private", "fieldPath": "questions", "indexes": [] },
+    { "collectionGroup": "seen", "fieldPath": "ids", "indexes": [] },
+    { "collectionGroup": "stats", "fieldPath": "days", "indexes": [] },
+    { "collectionGroup": "stats", "fieldPath": "exams", "indexes": [] }
+  ]
+}

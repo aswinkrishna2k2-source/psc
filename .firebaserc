@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "default": "demo-psc",
+    "prod": "codeeaq-ai-tutor"
+  },
+  "targets": {
+    "codeeaq-ai-tutor": {
+      "hosting": {
+        "psc": [
+          "codeeaq-psc"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
